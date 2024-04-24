@@ -23,3 +23,67 @@ Evaluate model goodness of fit and predictive ability. If needed, data set could
 
 **Solutions for 1 task**
 - Select random subsample of data set:
+```
+random <- df[sample(nrow(df), size = 1000, replace = FALSE), ]
+```
+- Filter desired rows using simple and more complex conditions:
+```
+simple <- random %>% filter(marital == "married", housing == "yes")
+```
+```
+complex <- random %>%
+  filter( (age > 30 & balance > 1000) |     
+      (marital == "married" & education == "tertiary")
+  )
+```
+- Drop unnecessary variables, rename some variables:
+```
+variables <- df %>% 
+  select(-marital, -contact)%>% 
+  rename("Amžius" = "age",
+         "Darbas" = "job" ,
+         "Išsilavinimas" = "education")
+```
+- Calculate summarizing statistics (for full sample and by categorical variables as well):
+```
+summary(df)
+```
+```
+summary_by_education <- df %>%
+  group_by(education) %>%
+  summarise(
+    mean_age = mean(age),
+    median_balance = median(balance),
+    min_campaign = min(campaign),
+    max_campaign = max(campaign)
+  )
+```
+```
+summary_by_job <- df %>%
+  group_by(job) %>%
+  summarise(
+    mean_age = mean(age),
+    median_balance = median(balance),
+    min_campaign = min(campaign),
+    max_campaign = max(campaign)
+  )
+```
+- Create new variables using simple transformation and custom functions:
+```
+df$balance_status <- ifelse(df$balance < 0, "Negative balance", "Positive balance")
+```
+```
+by_age <- function(age) {
+  ifelse(age < 30, "Young",
+         ifelse(age >= 30 & age < 60, "Middle-aged", "Elderly"))
+}
+
+df <- df %>%
+  mutate( 
+    age_group = by_age(age))
+```
+- Order data set by several variables:
+```
+sorted_df <- df %>%
+  arrange(month,day, desc(age))
+```
