@@ -1,5 +1,7 @@
 # Task for Intern in Credit Risk Model Validation
 
+## Task description
+
 **1 TASK**\
 DATA MANIPULATION TASK\
 Demonstrate your ability to:
@@ -21,7 +23,9 @@ Perform a logistic regression to obtain the predicted probability that a custome
 Use continuous variables and dummy variables created for categorical columns. Not necessarily all variables provided in data sample should be used.\
 Evaluate model goodness of fit and predictive ability. If needed, data set could be split into training and test sets.
 
-**Solutions for 1 task**
+## Solutions
+
+### Solutions for 1 task
 - Select random subsample of data set:
 ```
 random <- df[sample(nrow(df), size = 1000, replace = FALSE), ]
@@ -88,61 +92,71 @@ sorted_df <- df %>%
   arrange(month,day, desc(age))
 ```
 
-**Results for 2 task**
+###Results for 2 task
 
 <img width="300" alt="Screenshot 2024-04-24 at 15 35 23" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/82093c3a-f729-4da6-9f84-f146f909251c">
 
 - We can see that the most frequent age is from 30 to 40;
 - From 65 there are less people in that age group;
+
+**Balance by job title**\
   
 <img width="300" alt="Screenshot 2024-04-24 at 15 35 41" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/5b12432e-c098-4b95-bcca-7edc0c9d3b48">
 
-- We can see that the largest balance has retired people, second largest have people with unknown job;
-- The smallest balance have people with services jobs and entrepreneur;
+- We can see that retired people had the largest median balance, people with 'unknown' job - second largest;
+- People with 'services' and 'entrepreneur' job titles had the smallest median balance;
+
+**Balance by education**\
 
 <img width="300" alt="Screenshot 2024-04-24 at 15 36 00" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/7f4246da-de12-4ddb-911c-6174b34b8640">
 
-- By education the largest balance have people with tertiary education and smallest balance with secondary education.
+- People with tertiary education had the largest median balance, and with secondary education - smallest median balance.
+
+**Balance by age group**\
 
 <img width="300" alt="Screenshot 2024-04-24 at 15 36 14" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/3d8ada6f-e3b3-40a7-8d0e-80405a9d9d23">
 
-- By age group we can see that elderly people have largest balance and  young people have the smallest balance;
+- By age group we can see that elderly people have largest balance and young people have the smallest balance;
+
+**Correlation matrix**\
 
 <img width="300" alt="Screenshot 2024-04-24 at 15 36 28" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/a4c38db1-2bc8-408d-ab19-f46635e07af5">
 
-- We can see that there aren't strong correlation anywhere;
-- But there is positive moderate correlation with pdays and previous;
+- We can see that there is no strong correlation between variables;
+- There is moderate positive correlation between pdays and previous;
+
+**Proportion graphs**\
 
 <img width="400" alt="Screenshot 2024-04-24 at 15 36 50" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/e1ac43b9-77c4-4ebe-85b5-18d9e03c6b6b">
 
-- We can see form the pie chart that 56% of people has a housing loan;
--  From the bar chart we see that more people with secondary education has a housing loan (61%) compared to other education levels;
-- And least amount of people have house loans if there education is unknown;
-
+- We can see form the pie chart that 56% of people had a housing loan;
+- From the bar chart we see that more people with secondary education had a housing loan (61%) compared to other education levels;
+- And least amount of people had house loans if there education is unknown;
+  
 <img width="400" alt="Screenshot 2024-04-24 at 15 37 01" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/6eafafdc-6612-4259-91c7-37edda2fae4f">
 
-- We can see in th epie chart that 84% of people has no loan;
-- In the bar chart we can see that with unknown education level people have fewer loans than other education levels;
-- People with secondary education has more loans than others;
+- We can see in th epie chart that 84% of people had no loan;
+- People with secondary education had more loans than others;
+- 'Unknown' education level people have fewer loans than other education levels;
 
 <img width="400" alt="Screenshot 2024-04-24 at 15 37 22" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/0f40e8cf-db42-4169-903b-405738b5882f">
 
-- We can see from the pie chart that more than half (51%) people has secondary education level;
-- And the least amount (4%) of people have unknown education;
-- From bar chart we can see that people with primary education most often have a blue-collar job (55%);
-- With secondary education people most often have blue-color (23%) or technician (23%) jobs;
-- With tertiary education more than half works in management (59%) and least amount of people have blue-color and housemaid jobs;
-- With unknown education people are more evenly distributed, biggest proportion have blue-collar job (24%);
-- The least amount of people are housemaids and unemployed;
+- We can see from the pie chart that more than half (51%) people had secondary education level;
+- The least amount (4%) of people had unknown education;
+- From bar chart we can see that people with primary education most often had a blue-collar job (55%);
+- With secondary education, people most often had blue-collar (23%) or technician (23%) jobs;
+- With tertiary education more than half worked in management (59%) and least amount of people had blue-collar and housemaid jobs;
+- With unknown education people are more evenly distributed, biggest proportion had blue-collar job (24%);
+- The least amount of people were housemaids and unemployed;
 
 
-**Results for 3 task**
+###Results for 3 task
 
-Firstly, we splited data set into training and testing sets (80:20). Then changed y variable answers yes to 1 and no to 0, and checked if there is 20% proportion that is required for regression. 
+Firstly, we splited data set into training and testing sets (80:20). Then changed y variable: answers 'yes' to 1 and 'no' to 0. And also checked if each dependent variable value is at least 20% of the sample, that is recommended for regression to be efficient. 
 
 <img width="133" alt="Screenshot 2024-04-24 at 15 59 19" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/d592d4f6-f98c-41d0-b96b-e38a19a16af0"> 
 
-As we can see in the table above it didn't meet the requirement. So we changed the data set so there would be atlest 20% of values. 
+As we can see in the table above, it didn't meet the 20% requirement. So we performed undersampling for  the '0' value so there would be at least 20%. 
 
 <img width="141" alt="Screenshot 2024-04-24 at 16 01 46" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/5098936a-06a7-499f-8e1e-1deb2e5358c6"> 
 
@@ -167,12 +181,13 @@ The classification table below shows a 85% fit to the data, and the (pseudo) coe
 <img width="150" alt="Screenshot 2024-04-24 at 16 18 59" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/11f7baaa-267c-41f9-a8b4-9200da23ca2e">
 
 Next, we apply stepwise regression. Best AIC we got was AIC = 12478.53, when we removed age, pdays and default.
+
 New model: 
 ```
 y ~ job + marital + education + balance + housing + loan + contact + 
               day + month + duration + campaign + previous + poutcome
 ```
-Then we check multicollinearity for new model, all values are < 4 there is no multicollinearity.
+Then we check multicollinearity for new model using VIF, all values are < 4: there is no multicollinearity.
 
 <img width="223" alt="Screenshot 2024-04-24 at 16 29 32" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/1ef0f33f-aafb-4fa3-8835-bacc015620c5">
 
@@ -180,13 +195,13 @@ Clasification table for train data set:
 
 <img width="150" alt="Screenshot 2024-04-24 at 16 31 00" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/779ffb67-d30a-4272-9914-4fb87347b38d">
 
-We counted sensitivity (0.5409177), specificity (0.9468142), precision (0.741329), negative predictive (0.8795196),accuracy (0.8575811) and threshold (0.4859292). 
+Calculated metrics: sensitivity (0.5409177), specificity (0.9468142), precision (0.741329), negative predictive (0.8795196), accuracy (0.8575811) and threshold (0.4859292). 
 
 Clasification table for test data set:
 
 <img width="98" alt="Screenshot 2024-04-24 at 16 36 59" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/4a7275e7-4187-4941-af5c-d886dba531fe">
 
-We counted sensitivity (0.5768143), specificity (0.9473551), precision (0.5953307), negative predictive (0.9434152) and accuracy (0.9034921). We got better accuracy on test se then on train data set. The model recognizes well if the client subscribed a term deposit.
+Calculated metrics: (0.5768143), specificity (0.9473551), precision (0.5953307), negative predictive (0.9434152) and accuracy (0.9034921). We got better accuracy on test set then on train data set. The model recognizes well if the client subscribed a term deposit.
 
 <img width="150" alt="Screenshot 2024-04-24 at 16 42 21" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/130ddb22-3366-4f48-88ef-34dbd005461d">
 
