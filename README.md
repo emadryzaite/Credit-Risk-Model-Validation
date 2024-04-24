@@ -108,7 +108,7 @@ Firstly, we splited data set into training and testing sets (80:20). Then change
 As we can see in the table above it didn't meet the requirement. So we changed the data set so there would be atlest 20% of values. \
 <img width="141" alt="Screenshot 2024-04-24 at 16 01 46" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/5098936a-06a7-499f-8e1e-1deb2e5358c6"> \
 Then using Cook's Distance and DFBETA we saw that there is no outliers in our data set.
-<img width="412" alt="Screenshot 2024-04-24 at 16 12 14" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/4226736f-e07f-4218-aabc-3313cf4b36d2">
+<img width="200" alt="Screenshot 2024-04-24 at 16 12 14" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/4226736f-e07f-4218-aabc-3313cf4b36d2">
 <img width="354" alt="Screenshot 2024-04-24 at 16 13 23" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/3cc8866f-6ff5-465b-bc23-dad71e04e1df">
 
 Model with initial predictors: 
@@ -119,6 +119,17 @@ y ~ age + job + marital + education + default +
 ```
 We checked if all regressors are significant, we can see in the image that p-value < 2.2e-16 so at least one regressor is significant
 <img width="456" alt="Screenshot 2024-04-24 at 16 16 24" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/7b3372a1-a87e-4d5d-b424-a9244f8e5708">
-<img width="222" alt="Screenshot 2024-04-24 at 16 18 59" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/11f7baaa-267c-41f9-a8b4-9200da23ca2e">
 
-
+The classification table below shows a 85% fit to the data, and the (pseudo) coefficient of determination for McFadden is also appropriate as > 0.2
+<img width="150" alt="Screenshot 2024-04-24 at 16 18 59" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/11f7baaa-267c-41f9-a8b4-9200da23ca2e">
+Next, we apply stepwise regression. Best AIC we got was AIC=12478.53, when we removed age, pdays and default.
+New model: 
+```
+y ~ job + marital + education + balance + housing + loan + contact + 
+              day + month + duration + campaign + previous + poutcome
+```
+Then we check multicollinearity for new model, all values are < 4 there is no multicollinearity.
+<img width="223" alt="Screenshot 2024-04-24 at 16 29 32" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/1ef0f33f-aafb-4fa3-8835-bacc015620c5">
+New model clasification table:
+<img width="172" alt="Screenshot 2024-04-24 at 16 31 00" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/779ffb67-d30a-4272-9914-4fb87347b38d">
+We counted sensitivity (0.5409177), specificity (0.9468142), precision (0.741329), negative predictive (0.8795196) and threshold (0.4859292).
