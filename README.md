@@ -109,6 +109,7 @@ sorted_df <- df %>%
 - By age group we can see that elderly people have largest balance and  young people have the smallest balance;
 
 <img width="300" alt="Screenshot 2024-04-24 at 15 36 28" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/a4c38db1-2bc8-408d-ab19-f46635e07af5">
+
 - We can see that there aren't strong correlation anywhere;
 - But there is positive moderate correlation with pdays and previous;
 
@@ -125,6 +126,7 @@ sorted_df <- df %>%
 - People with secondary education has more loans than others;
 
 <img width="400" alt="Screenshot 2024-04-24 at 15 37 22" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/0f40e8cf-db42-4169-903b-405738b5882f">
+
 - We can see from the pie chart that more than half (51%) people has secondary education level;
 - And the least amount (4%) of people have unknown education;
 - From bar chart we can see that people with primary education most often have a blue-collar job (55%);
@@ -186,7 +188,6 @@ Clasification table for test data set:
 
 We counted sensitivity (0.5768143), specificity (0.9473551), precision (0.5953307), negative predictive (0.9434152) and accuracy (0.9034921). We got better accuracy on test se then on train data set. The model recognizes well if the client subscribed a term deposit.
 
-We also wanted to check ROC curve we can see that values are close to 1 so the model is good at the diagnostic properties
-
-
 <img width="150" alt="Screenshot 2024-04-24 at 16 42 21" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/130ddb22-3366-4f48-88ef-34dbd005461d">
+
+We also wanted to check ROC curve we can see that values are close to 1 so the model is good at the diagnostic properties.
