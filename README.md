@@ -99,33 +99,33 @@ sorted_df <- df %>%
 - We can see that the most frequent age is from 30 to 40;
 - From 65 there are less people in that age group;
 
-**Balance by job title**\
+**Balance by job title**
   
 <img width="300" alt="Screenshot 2024-04-24 at 15 35 41" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/5b12432e-c098-4b95-bcca-7edc0c9d3b48">
 
 - We can see that retired people had the largest median balance, people with 'unknown' job - second largest;
 - People with 'services' and 'entrepreneur' job titles had the smallest median balance;
 
-**Balance by education**\
+**Balance by education**
 
 <img width="300" alt="Screenshot 2024-04-24 at 15 36 00" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/7f4246da-de12-4ddb-911c-6174b34b8640">
 
 - People with tertiary education had the largest median balance, and with secondary education - smallest median balance.
 
-**Balance by age group**\
+**Balance by age group**
 
 <img width="300" alt="Screenshot 2024-04-24 at 15 36 14" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/3d8ada6f-e3b3-40a7-8d0e-80405a9d9d23">
 
 - By age group we can see that elderly people have largest balance and young people have the smallest balance;
 
-**Correlation matrix**\
+**Correlation matrix**
 
 <img width="300" alt="Screenshot 2024-04-24 at 15 36 28" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/a4c38db1-2bc8-408d-ab19-f46635e07af5">
 
 - We can see that there is no strong correlation between variables;
 - There is moderate positive correlation between pdays and previous;
 
-**Proportion graphs**\
+**Proportion graphs**
 
 <img width="400" alt="Screenshot 2024-04-24 at 15 36 50" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/e1ac43b9-77c4-4ebe-85b5-18d9e03c6b6b">
 
