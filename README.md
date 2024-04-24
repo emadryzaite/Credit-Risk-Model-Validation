@@ -92,7 +92,7 @@ sorted_df <- df %>%
   arrange(month,day, desc(age))
 ```
 
-###Results for 2 task
+### Results for 2 task
 
 <img width="300" alt="Screenshot 2024-04-24 at 15 35 23" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/82093c3a-f729-4da6-9f84-f146f909251c">
 
