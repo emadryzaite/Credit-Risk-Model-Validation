@@ -103,8 +103,22 @@ sorted_df <- df %>%
 
 **Results for 3 task**
 
-Firstly, we splited data set into training and testing sets (80:20). Then changed y variable answers yes to 1 and no to 0, and checked if there is 20% proportion that is required for regression.
-<img width="133" alt="Screenshot 2024-04-24 at 15 59 19" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/d592d4f6-f98c-41d0-b96b-e38a19a16af0">
-As we can see in the table above it didn't meet the requirement. So we changed the data set so there would be atlest 20% of values. 
-<img width="141" alt="Screenshot 2024-04-24 at 16 01 46" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/5098936a-06a7-499f-8e1e-1deb2e5358c6">
+Firstly, we splited data set into training and testing sets (80:20). Then changed y variable answers yes to 1 and no to 0, and checked if there is 20% proportion that is required for regression. \
+<img width="133" alt="Screenshot 2024-04-24 at 15 59 19" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/d592d4f6-f98c-41d0-b96b-e38a19a16af0"> \
+As we can see in the table above it didn't meet the requirement. So we changed the data set so there would be atlest 20% of values. \
+<img width="141" alt="Screenshot 2024-04-24 at 16 01 46" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/5098936a-06a7-499f-8e1e-1deb2e5358c6"> \
+Then using Cook's Distance and DFBETA we saw that there is no outliers in our data set.
+<img width="412" alt="Screenshot 2024-04-24 at 16 12 14" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/4226736f-e07f-4218-aabc-3313cf4b36d2">
+<img width="354" alt="Screenshot 2024-04-24 at 16 13 23" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/3cc8866f-6ff5-465b-bc23-dad71e04e1df">
+
+Model with initial predictors: 
+```
+y ~ age + job + marital + education + default +
+               balance + housing + loan + contact + day +
+               month + duration +campaign + pdays + previous + poutcome
+```
+We checked if all regressors are significant, we can see in the image that p-value < 2.2e-16 so at least one regressor is significant
+<img width="456" alt="Screenshot 2024-04-24 at 16 16 24" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/7b3372a1-a87e-4d5d-b424-a9244f8e5708">
+<img width="222" alt="Screenshot 2024-04-24 at 16 18 59" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/11f7baaa-267c-41f9-a8b4-9200da23ca2e">
+
 
