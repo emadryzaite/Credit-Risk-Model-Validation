@@ -130,6 +130,12 @@ y ~ job + marital + education + balance + housing + loan + contact +
 ```
 Then we check multicollinearity for new model, all values are < 4 there is no multicollinearity.
 <img width="223" alt="Screenshot 2024-04-24 at 16 29 32" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/1ef0f33f-aafb-4fa3-8835-bacc015620c5">
-New model clasification table:
+Clasification table for train data set:
 <img width="172" alt="Screenshot 2024-04-24 at 16 31 00" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/779ffb67-d30a-4272-9914-4fb87347b38d">
-We counted sensitivity (0.5409177), specificity (0.9468142), precision (0.741329), negative predictive (0.8795196) and threshold (0.4859292).
+We counted sensitivity (0.5409177), specificity (0.9468142), precision (0.741329), negative predictive (0.8795196),accuracy (0.8575811) and threshold (0.4859292). 
+
+Clasification table for test data set:
+<img width="98" alt="Screenshot 2024-04-24 at 16 36 59" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/4a7275e7-4187-4941-af5c-d886dba531fe">
+We counted sensitivity (0.5768143), specificity (0.9473551), precision (0.5953307), negative predictive (0.9434152) and accuracy (0.9034921). We got better accuracy on test se then on train data set. The model recognizes well if the client subscribed a term deposit.
+We also wanted to check ROC curve 
+<img width="422" alt="Screenshot 2024-04-24 at 16 42 21" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/130ddb22-3366-4f48-88ef-34dbd005461d">
