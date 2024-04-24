@@ -91,15 +91,48 @@ sorted_df <- df %>%
 **Results for 2 task**
 
 <img width="300" alt="Screenshot 2024-04-24 at 15 35 23" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/82093c3a-f729-4da6-9f84-f146f909251c">
+
+- We can see that the most frequent age is from 30 to 40;
+- From 65 there are less people in that age group;
+  
 <img width="300" alt="Screenshot 2024-04-24 at 15 35 41" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/5b12432e-c098-4b95-bcca-7edc0c9d3b48">
+
+- We can see that the largest balance has retired people, second largest have people with unknown job;
+- The smallest balance have people with services jobs and entrepreneur;
+
 <img width="300" alt="Screenshot 2024-04-24 at 15 36 00" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/7f4246da-de12-4ddb-911c-6174b34b8640">
+
+- By education the largest balance have people with tertiary education and smallest balance with secondary education.
+
 <img width="300" alt="Screenshot 2024-04-24 at 15 36 14" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/3d8ada6f-e3b3-40a7-8d0e-80405a9d9d23">
+
+- By age group we can see that elderly people have largest balance and  young people have the smallest balance;
+
 <img width="300" alt="Screenshot 2024-04-24 at 15 36 28" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/a4c38db1-2bc8-408d-ab19-f46635e07af5">
+- We can see that there aren't strong correlation anywhere;
+- But there is positive moderate correlation with pdays and previous;
 
 <img width="400" alt="Screenshot 2024-04-24 at 15 36 50" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/e1ac43b9-77c4-4ebe-85b5-18d9e03c6b6b">
 
+- We can see form the pie chart that 56% of people has a housing loan;
+-  From the bar chart we see that more people with secondary education has a housing loan (61%) compared to other education levels;
+- And least amount of people have house loans if there education is unknown;
+
 <img width="400" alt="Screenshot 2024-04-24 at 15 37 01" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/6eafafdc-6612-4259-91c7-37edda2fae4f">
+
+- We can see in th epie chart that 84% of people has no loan;
+- In the bar chart we can see that with unknown education level people have fewer loans than other education levels;
+- People with secondary education has more loans than others;
+
 <img width="400" alt="Screenshot 2024-04-24 at 15 37 22" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/0f40e8cf-db42-4169-903b-405738b5882f">
+- We can see from the pie chart that more than half (51%) people has secondary education level;
+- And the least amount (4%) of people have unknown education;
+- From bar chart we can see that people with primary education most often have a blue-collar job (55%);
+- With secondary education people most often have blue-color (23%) or technician (23%) jobs;
+- With tertiary education more than half works in management (59%) and least amount of people have blue-color and housemaid jobs;
+- With unknown education people are more evenly distributed, biggest proportion have blue-collar job (24%);
+- The least amount of people are housemaids and unemployed;
+
 
 **Results for 3 task**
 
@@ -143,7 +176,7 @@ Then we check multicollinearity for new model, all values are < 4 there is no mu
 
 Clasification table for train data set:
 
-<img width="172" alt="Screenshot 2024-04-24 at 16 31 00" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/779ffb67-d30a-4272-9914-4fb87347b38d">
+<img width="150" alt="Screenshot 2024-04-24 at 16 31 00" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/779ffb67-d30a-4272-9914-4fb87347b38d">
 
 We counted sensitivity (0.5409177), specificity (0.9468142), precision (0.741329), negative predictive (0.8795196),accuracy (0.8575811) and threshold (0.4859292). 
 
@@ -156,4 +189,4 @@ We counted sensitivity (0.5768143), specificity (0.9473551), precision (0.595330
 We also wanted to check ROC curve we can see that values are close to 1 so the model is good at the diagnostic properties
 
 
-<img width="422" alt="Screenshot 2024-04-24 at 16 42 21" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/130ddb22-3366-4f48-88ef-34dbd005461d">
+<img width="150" alt="Screenshot 2024-04-24 at 16 42 21" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/130ddb22-3366-4f48-88ef-34dbd005461d">
