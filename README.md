@@ -150,7 +150,7 @@ sorted_df <- df %>%
 - The least amount of people were housemaids and unemployed;
 
 
-###Results for 3 task
+### Results for 3 task
 
 Firstly, we splited data set into training and testing sets (80:20). Then changed y variable: answers 'yes' to 1 and 'no' to 0. And also checked if each dependent variable value is at least 20% of the sample, that is recommended for regression to be efficient. 
 
