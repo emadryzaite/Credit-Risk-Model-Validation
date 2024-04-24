@@ -101,5 +101,10 @@ sorted_df <- df %>%
 <img width="400" alt="Screenshot 2024-04-24 at 15 37 01" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/6eafafdc-6612-4259-91c7-37edda2fae4f">
 <img width="400" alt="Screenshot 2024-04-24 at 15 37 22" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/0f40e8cf-db42-4169-903b-405738b5882f">
 
+**Results for 3 task**
 
+Firstly, we splited data set into training and testing sets (80:20). Then changed y variable answers yes to 1 and no to 0, and checked if there is 20% proportion that is required for regression.
+<img width="133" alt="Screenshot 2024-04-24 at 15 59 19" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/d592d4f6-f98c-41d0-b96b-e38a19a16af0">
+As we can see in the table above it didn't meet the requirement. So we changed the data set so there would be atlest 20% of values. 
+<img width="141" alt="Screenshot 2024-04-24 at 16 01 46" src="https://github.com/emadryzaite/Task-for-Intern-in-Credit-Risk-Model-Validation/assets/113093671/5098936a-06a7-499f-8e1e-1deb2e5358c6">
 
