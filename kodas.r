@@ -5,7 +5,7 @@ library(dplyr)
 library(MASS)
 library(xlsx)
 
-# 1 UZDUOTIS --------------
+# 1 TASK --------------
    
 # DATA MANIPULATION TASK
 # Demonstrate your ability to:
@@ -109,22 +109,26 @@ print(sorted_df)
 
 
 
-# 2 UZDUOTIS ------------------------
+# 2 TASK ------------------------
 #     DATA VISUALISATION TASK
 # In order to understand the data please visualize it. 
 # You are free to select the scope, types of plots, etc.
 
 ############ Histogram for age ##########
 ggplot(df, aes(x = age)) +
-  geom_histogram(binwidth = 5, fill = "skyblue", color = "black") +
-  labs(title = "Age frequency", x = "Age", y = "Frequency")+
-  scale_x_continuous(breaks = seq(10, 100, by = 10))+
-  scale_y_continuous(breaks = seq(0, 10000, by = 1000))+
+  geom_histogram(binwidth = 5, fill = "#AFE1AF", color = "black") +
+  labs(title = "Age frequency", x = "Age", y = "Frequency") 
+  scale_x_continuous(breaks = seq(20, 100, by = 10)) +
+  scale_y_continuous(breaks = seq(0, 10000, by = 1000)) +
   theme(axis.text.y = element_text(size = 12),
         axis.title.x = element_text(size = 14),
-        axis.title.y = element_text(size = 14))  
+        axis.title.y = element_text(size = 14),
+panel.background = element_rect(fill = "transparent"))
+
+
+
 # We can see that the most frequent age is from 30 to 40 
-# And from 65 there are way less people in that age 
+# And from 65 there are  less people in that age group
 
 ############# Median, Q1 and Q3 ############
 plot_balance_summary <- function(indicator, df, group_column) {
@@ -155,17 +159,18 @@ plot_balance_summary <- function(indicator, df, group_column) {
 }
 
 plot_balance_summary("balance", df, "job")
-# We can see that the largest balance has retired people, second largest 
-# have people with unknown job.
-# The smallest balance have people with services jobs and entrepreneur.
+# We can see that retired people had the largest median balance, 
+# people with 'unknown' job - second largest;
+# People with 'services' and 'entrepreneur' job titles 
+# had the smallest median balance;
 
 plot_balance_summary("balance", df, "education")
-# By education the largest balance have people with tertiary education and 
-# smallest balance with secondary education.
+# People with tertiary education had the largest median balance, 
+# and with secondary education - smallest median balance.
 
 plot_balance_summary("balance", df, "age_group")
-# By age group we can see that elderly people have largest balance and 
-# young people have the smallest balance.
+# By age group we can see that elderly people have largest balance 
+# and young people have the smallest balance;
 
 ######## Correlation matrix #########
 library(corrplot)
@@ -173,8 +178,8 @@ library(corrplot)
 numerical_data <- df[, sapply(df, is.numeric)]
 correlation_matrix <- cor(numerical_data)
 corrplot(correlation_matrix, method = "number", type = "upper", tl.col = "black", col = colorRampPalette(c("red", "grey", "forestgreen"))(10))
-# We can see that there aren't strong correlation anywhere
-# But there is positive moderate correlation with pdays and previous
+# We can see that there is no strong correlation between variables;
+# There is moderate positive correlation between pdays and previous;
 
 ###################
 library(patchwork)
@@ -230,10 +235,10 @@ bar_chart <- create_binary_bar_chart(df, binary_variable, categorical_variable)
 grid_plot <- pie_chart + bar_chart
 grid_plot
 
-# We can see form the pie chart that 56% of people has a housing loan.
+# We can see form the pie chart that 56% of people had a housing loan;
 # From the bar chart we see that more people with secondary education 
-# has a housing loan (61%) compared to other education levels.
-# And least amount of people have house loans if there education is unknown.
+# had a housing loan (61%) compared to other education levels;
+# And least amount of people had house loans if there education is unknown;
 
 # Loan and educatuion
 binary_variable <- "loan"
@@ -244,10 +249,9 @@ bar_chart <- create_binary_bar_chart(df, binary_variable, categorical_variable)
 grid_plot <- pie_chart + bar_chart
 grid_plot
 
-# We can see in th epie chart that 84% of people has no loan.
-# In the bar chart we can see that with unknown education level 
-# people have fewer loans than other education levels.
-# People with secondary education has more loans than others.
+# We can see in th epie chart that 84% of people had no loan;
+# People with secondary education had more loans than others;
+# 'Unknown' education level people have fewer loans than other education levels;
 
 
 
@@ -282,16 +286,16 @@ bar_chart <- create_binary_bar_chart(df, binary_variable, categorical_variable)
 grid_plot <- pie_chart + bar_chart
 grid_plot
 
-# We can see from the pie chart that more than half (51%) people has secondary education level.
-# And the least amount (4%) of people have unknown education. 
-# From bar chart we can see that people with primary education most often have a blue-collar job (55%).
-# With secondary education people most often have blue-color (23%) or technician (23%) jobs.
-# With tertiary education more than half works in management (59%) and least amount of 
-# people have blue-color and housemaid jobs.
-# With unknown education people are more evenly distributed, biggest proportion have blue-collar job (24%).
-# The least amount of people are housemaids and unemployed.
+# We can see from the pie chart that more than half (51%) people had secondary education level;
+# The least amount (4%) of people had unknown education;
+# From bar chart we can see that people with primary education most often had a blue-collar job (55%);
+# With secondary education, people most often had blue-collar (23%) or technician (23%) jobs;
+# With tertiary education more than half worked in management (59%) and least amount of people had blue-collar and housemaid jobs;
+# With unknown education people are more evenly distributed, biggest proportion had blue-collar job (24%);
+# The least amount of people were housemaids and unemployed;
 
-# # 3 UZDUOTIS
+
+# # 3 TASK
 #       MODELLING TASK
 # Perform a logistic regression to obtain the predicted probability that a customer has subscribed for a term deposit.
 # Use continuous variables and dummy variables created for categorical columns. Not necessarily all variables provided in data sample should be used.
@@ -369,22 +373,6 @@ new_data <- bind_rows(n_data, train %>%
 print(frequency_proportion(new_data, y))
 train <- new_data
 
-# Model
-model <- glm(formula = y ~ age + job + marital + education + default +
-               balance + housing + loan + contact + day + month + duration +
-               campaign + pdays + previous + poutcome,
-               family = binomial(logit), data = train)
-summary(model)
-# AIC: 12571
-
-deviance_per_df <- sum(model$deviance)/model$df.residual
-deviance_per_df
-# 0.6505881 
-
-# Independence of errors
-durbinWatsonTest(model)
-
-
 # Checking for outliers with cooks
 plot(cooks.distance(model), pch = 16, col = "black", cex = 1,
      ylab = "Cook's Distance", main="Standardized Residuals")
@@ -395,6 +383,18 @@ dfbetas <- dfbetas(model)
 influential_obs <- which(abs(dfbetas) > 1, arr.ind = TRUE)
 influential_obs
 # Also none
+# Model
+model <- glm(formula = y ~ age + job + marital + education + default +
+               balance + housing + loan + contact + day + month + duration +
+               campaign + pdays + previous + poutcome,
+               family = binomial(logit), data = train)
+summary(model)
+# AIC: 12571
+
+deviance_per_df <- sum(model$deviance)/model$df.residual
+deviance_per_df
+# 0.6462062
+
 
 ############## Model #############
 # Checking if all regressors are significant
@@ -403,22 +403,21 @@ influential_obs
 
 model_rd<-glm(y~1, family=binomial(logit), data=train)
 anova(model_rd, model, test="Chisq")
-# We got that not all are significant 
+# We got that not all are insignificant 
 # p < 0.05 we reject H0
 
 ClassLog(model, train$y)
 # McFadden is suitable, because > 0,2
 
 stepAIC(model, direction = "both")
-# Step:  AIC=12566.19
+# Step:  AIC=12478.53
 # y ~ job + marital + education + balance + housing + loan + contact + 
 #   day + month + duration + campaign + previous + poutcome
 
 stepAIC(model, direction = "backward")
-# Step:  AIC=12566.19
+# Step:  AIC=12478.53
 # y ~ job + marital + education + balance + housing + loan + contact + 
 #   day + month + duration + campaign + previous + poutcome
-
 # Same results with both ways 
 
 model_refined <- stepAIC(model, direction = "both")
@@ -430,7 +429,6 @@ ClassLog(model_refined, train$y)
 a <- glm(formula = y ~ job + marital + education + balance + housing + loan + contact + 
               day + month + duration + campaign + previous + poutcome, family = binomial(logit), data = train)
 summary(a)
-ClassLog(a, train$y)
 
 # Checking multicollinearity
 vif(a)
@@ -439,7 +437,7 @@ vif(a)
 exp(coef(a))
 exp(0.05*coef(a))
 
-# slenkstis ---------------------------------------------------------------
+
 ############ Confusion matrix ########
 #install.packages("pROC")
 library(pROC)
@@ -448,24 +446,27 @@ library(pROC)
 library(QuantPsyc)
 ClassLog(a, train$y)
 
-TP <- 2274
-FN <- 1946
-FP <- 794  
+TP <- 2287
+FN <- 1941
+FP <- 798  
 TN <- 14206  
 
 
 sensitivity <- TP / (TP + FN)
 sensitivity
-# 0.5388626
+# 0.5409177
 specificity <- TN / (TN + FP)
 specificity
-# 0.9470667
+# 0.9468142
 precision <- TP / (TP + FP)
 precision
-# 0.7411995
+# 0.741329
 negative_predictive <- TN / (TN + FN)
 negative_predictive
 # 0.8795196
+
+accuracy <-(TP + TN )/(TP + FN + TN + FP)
+accuracy
 
 # Threshold = specificity + sensitivity -1 (Youden)
 t <- specificity + sensitivity - 1
@@ -485,28 +486,30 @@ test$default<-as.factor(test$default)
 test$month<-as.factor(test$month)
 predictTest <- predict(a, type = "response", newdata = test)
 table(test$y,predictTest > 0.4859292)
-TP <- 610
-FN <- 435
-FP <- 459  
-TN <- 7601 
+TP <- 612
+FN <- 449
+FP <- 416  
+TN <- 7486 
 sensitivity <- TP / (TP + FN)
 sensitivity
 # 0.5837321
 specificity <- TN / (TN + FP)
 specificity
-0.9430521
+# 0.9473551
 precision <- TP / (TP + FP)
 precision
+# 0.5953307
 negative_predictive <- TN / (TN + FN)
 negative_predictive
+# 0.9434152
 
 accuracy <-(TP + TN )/(TP + FN + TN + FP)
 accuracy
-# 0.9018122
+# 0.9034921
 
 f1<-(1+1)*(sensitivity*precision)/(1*precision+sensitivity)
 f1
-# 0.577105
+# 0.5859263
 
 prognosis <- predict(a, test, type = "response")
 
@@ -515,8 +518,8 @@ ROC_lr <- roc(test$y, prognosis)
 ROC_lr_auc <- auc(ROC_lr)
 
 plot(ROC_lr, col = "green", main = "ROC for logistic regression" )
-# From the ROC curve we can see that values are close to 1 
-# so the model is good at the diagnostic properties
+# We also wanted to check ROC curve we can see that values are 
+# close to 1 so the model is good at the diagnostic properties.
 
 r_2<-1-a$deviance/a$null.deviance
 r_2
